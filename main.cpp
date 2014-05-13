@@ -1,5 +1,5 @@
-#include <SFML/Graphics.hpp>
 #include "Color.h"
+#include "Event.h"
 #include "Graphics.h"
 
 int main() {
@@ -9,9 +9,9 @@ int main() {
     Color drawColor(0, 0, 0);
 
     while(g.isOpen()) {
-        sf::Event event;
+        Event event;
         while(g.pollEvent(event)) {
-            if(event.type == sf::Event::Closed) {
+            if(event.type == Event::Closed) {
                 g.close();
             }
         } 

@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
-#include "Graphics.h"
 #include "Color.h"
+#include "Event.h"
+#include "Graphics.h"
 
 Graphics::Graphics() {}
 
@@ -33,6 +34,16 @@ void Graphics::display() {
     window.display();
 }
 
-bool Graphics::pollEvent(sf::Event& event) {
-    return window.pollEvent(event);
+bool Graphics::pollEvent(Event& event) {
+    sf::Event sfEvent;
+    if(!window.pollEvent(sfEvent)) {
+        return false;
+    }
+
+    switch(sfEvent.type) {
+        case sf::Event::Closed: 
+            event.type = Event::Closed;
+    }
+
+    return true;
 }

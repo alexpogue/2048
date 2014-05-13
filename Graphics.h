@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 
 class Color;
+class Event;
 
 class Graphics {
     private:
@@ -19,7 +20,7 @@ class Graphics {
         void display();
         bool isOpen();
         // replace with own event object
-        bool pollEvent(sf::Event& event);
+        bool pollEvent(Event& event);
 };
 
 #endif
